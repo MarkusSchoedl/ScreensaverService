@@ -28,32 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.serviceProcessInstaller1 = new System.ServiceProcess.ServiceProcessInstaller();
-            this.serviceInstaller1 = new System.ServiceProcess.ServiceInstaller();
+            this.ScreensaverServiceInstaller = new System.ServiceProcess.ServiceProcessInstaller();
+            this.ServiceInstaller = new System.ServiceProcess.ServiceInstaller();
             // 
-            // serviceProcessInstaller1
+            // ScreensaverServiceInstaller
             // 
-            this.serviceProcessInstaller1.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
-            this.serviceProcessInstaller1.Password = null;
-            this.serviceProcessInstaller1.Username = null;
+            this.ScreensaverServiceInstaller.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
+            this.ScreensaverServiceInstaller.Password = null;
+            this.ScreensaverServiceInstaller.Username = null;
             // 
-            // serviceInstaller1
+            // ServiceInstaller
             // 
-            this.serviceInstaller1.DisplayName = "Screensaver Service";
-            this.serviceInstaller1.ServiceName = "Service1";
-            this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
+            this.ServiceInstaller.Description = "Copies all the Windows Wallpapers to another directory if they match one of the g" +
+    "iven sizes.";
+            this.ServiceInstaller.DisplayName = "Screensaver Service";
+            this.ServiceInstaller.ServiceName = "Screensaver Service";
+            this.ServiceInstaller.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
+            this.ServiceInstaller.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.serviceInstaller1_AfterInstall);
             // 
             // ProjectInstaller
             // 
             this.Installers.AddRange(new System.Configuration.Install.Installer[] {
-            this.serviceProcessInstaller1,
-            this.serviceInstaller1});
+            this.ScreensaverServiceInstaller,
+            this.ServiceInstaller});
 
         }
 
         #endregion
 
-        private System.ServiceProcess.ServiceProcessInstaller serviceProcessInstaller1;
-        private System.ServiceProcess.ServiceInstaller serviceInstaller1;
+        private System.ServiceProcess.ServiceProcessInstaller ScreensaverServiceInstaller;
+        private System.ServiceProcess.ServiceInstaller ServiceInstaller;
     }
 }

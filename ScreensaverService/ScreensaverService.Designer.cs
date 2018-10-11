@@ -1,6 +1,6 @@
 ﻿namespace ScreensaverService
 {
-    partial class Service1
+    partial class ScreensaverService
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             // 
-            // Service1
+            // ScreensaverService
             // 
-            this.ServiceName = "Service1";
+            this.ServiceName = "Screensaver Service";
 
         }
 
